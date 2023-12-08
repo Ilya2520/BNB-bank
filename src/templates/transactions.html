@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex justify-center flex-col items-center">
+    {% for tr in me %}
+        <div class="flex rounded-3 border-2 p-3 mt-5">
+            <div class="flex flex-col">
+                <span class="text-2xl font-bold">Transaction #{{ tr.number }}</span>
+                <span class="text-lg"> From user #{{ tr.from_user }}</span>
+                <span class="text-lg">To user #{{ tr.to_user }}</span>
+                <span class="text-lg">Amount #{{ tr.amount }}$</span>
+                <span class="text-lg">Status: {{ tr.status }}</span>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

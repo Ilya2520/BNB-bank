@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="ml-1 text-2xl font-bold">Logout</h1>
+    <form id="logoutForm" class="flex rounded-3 border-2 p-3 mt-5 ">
+        <button type="button"   class="flex rounded-3 border-2 p-3 mt-5 " onclick="logout()">Logout</button>
+    </form>
+
+    <script>
+        async function logout() {
+            const response = await fetch('/auth/jwt/logout', {
+                method: 'POST'
+            });
+            window.location.href = '/pages/base';
+            const result = await response.json();
+            console.log(result);
+        }
+    </script>
+{% endblock %}

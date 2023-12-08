@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="flex">
+        <div class="flex rounded-3 border-2 p-3 mt-5">
+            <div class="flex flex-col">
+<h1 class="text-2xl font-bold">Личный кабинет</h1>
+                <span class="text-2xl font-bold">Почта: {{ me.email }}</span>
+                <span class="text-lg">  Имя пользователя: {{ me.username }}</span>
+                <span class="text-lg">Зарегестрирован: {{ me.registered_at }}</span>
+                <span class="text-lg">Баланс счёта: {{ me.amount}}$</span>
+            </div>
+        </div>
+
+</div>
+{% endblock %}

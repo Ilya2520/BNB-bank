@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="ml-5 text-2xl font-bold">Login</h1>
+    <form id="loginForm" class="flex rounded-3 border-2 p-3 m-1">
+        <label for="username" class="flex rounded-3 border-2 p-3 m-1">Username:</label>
+        <input type="text" id="username" name="username" required class="flex rounded-3 border-2 p-3 m-1">
+        <br>
+        <label for="password" class="flex rounded-3 border-2 p-3 m-1">Password:</label>
+        <input type="password" id="password" name="password" required class="flex rounded-3 border-2 p-3 m-1">
+        <br>
+        <button type="button" class="flex rounded-3 border-2 p-3 m-1" onclick="login()">Login</button>
+    </form>
+
+    <script>
+        async function login() {
+            const formData = new FormData(document.getElementById('loginForm'));
+            const response = await fetch('/auth/jwt/login', {
+                method: 'POST',
+                body: formData
+            });
+            window.location.href = '/pages/base';
+        }
+    </script>
+{% endblock %}
